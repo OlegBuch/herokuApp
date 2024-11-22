@@ -1,0 +1,13 @@
+node_modules/
+
+# Ignore Cypress binary cache
+.cypress/
+
+# Ignore videos, screenshots, and other generated files
+/cypress/videos/
+/cypress/screenshots/
+/cypress/screenshots-debug/
+/cypress/reports/
+
+# Ignore .env files if you use them for environment variables
+.env*
