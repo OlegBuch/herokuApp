@@ -1,30 +1,32 @@
-# Heroku App - Cypress Testing Guide
-
-## System Requirements
-Refer to the official Cypress documentation for system requirements:  
-🔗 [Cypress System Requirements](https://docs.cypress.io/app/get-started/install-cypress#System-requirements)
-
-## Installing Cypress
-Run the following command in the root of your project directory:
-
+```bash
 npm install
+Alternatively, you can install Cypress as a development dependency by running:
 
-Alternatively, install Cypress as a development dependency:
-
+bash
+Copy
+Edit
 npm install cypress --save-dev
-
-GUI Mode
-To run Cypress in interactive mode:
+🖱️ Running Cypress Tests
+1️⃣ GUI Mode
+To run Cypress in interactive mode (GUI mode), follow these steps:
 
 Execute the following command:
+
+bash
+Copy
+Edit
 npx cypress open
-Select E2E Testing.
+In the Cypress UI, select E2E Testing.
+
 Choose your target browser.
-Select the spec file to execute.
 
-Headless Mode
-To run all tests from all spec files in headless mode:
+Select the spec file you want to execute.
 
+2️⃣ Headless Mode
+To run all tests from all spec files in headless mode (without the Cypress UI), use the following command:
+
+bash
+Copy
+Edit
 npx cypress run
-This will execute all tests without opening the Cypress UI.
-
+This will run all the tests without opening the Cypress UI, ideal for CI/CD environments.
