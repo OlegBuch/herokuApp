@@ -8,6 +8,7 @@ node_modules/
 /cypress/screenshots/
 /cypress/screenshots-debug/
 /cypress/reports/
+/cypress/support/
 
 # Ignore .env files if you use them for environment variables
 .env*

@@ -1,33 +1,33 @@
-import { DynamicLoadingPage } from "../pageObjects/DynamicLoadingPage";
+import { DynamicLoadingPageObject } from "../pageObjects/DynamicLoadingPageObject";
 
-const dynamicLoadingPage = new DynamicLoadingPage();
+const dynamicLoadingPage = new DynamicLoadingPageObject();
 
-describe("Validate Dynamic Loading component", () => {
+describe("Check that Dynamic Loading component works", () => {
 
   beforeEach(() => {
     dynamicLoadingPage.open();
   });
 
-  it("Verify Dynamic Loading page content", () => {
-    dynamicLoadingPage.verifyContent();
+  it("Check that Dynamic Loading page content works", () => {
+    dynamicLoadingPage.checkContent();
   });
 
-  it("Verify Loading Bar Appearence", () => {
+  it("Check that Loading Bar UI looks correct", () => {
     dynamicLoadingPage.openLink(dynamicLoadingPage.hiddenElementLoadingLink);
-    dynamicLoadingPage.verifyLoadingBarAppearence();
+    dynamicLoadingPage.checkLoadingBarAppearance();
   });
 
-  it("Verify loading of hidden element", () => {
+  it("Check that loading of hidden element works", () => {
     dynamicLoadingPage.openLink(dynamicLoadingPage.hiddenElementLoadingLink);
-    dynamicLoadingPage.verifyTargetElementHidden();
+    dynamicLoadingPage.checkTargetElementHidden();
     dynamicLoadingPage.load();
-    dynamicLoadingPage.verifyTargetElementVisible();    
+    dynamicLoadingPage.checkTargetElementVisible();
   });
 
-  it("Verify loading of not attached element", () => {
+  it("Check that loading of not attached element works", () => {
     dynamicLoadingPage.openLink(dynamicLoadingPage.notAttachedElementLoadingLink);
-    dynamicLoadingPage.verifyTargetElementNotAttached();
+    dynamicLoadingPage.checkTargetElementNotAttached();
     dynamicLoadingPage.load();
-    dynamicLoadingPage.verifyTargetElementVisible();    
+    dynamicLoadingPage.checkTargetElementVisible();
   });
 });

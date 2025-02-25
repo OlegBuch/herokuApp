@@ -1,24 +1,25 @@
-import { BrokenImagesPage } from "../pageObjects/BrokenImagesPage";
+import { BrokenImagesPageObject } from "../pageObjects/BrokenImagesPageObject";
 
-const brokenImagesPage = new BrokenImagesPage();
+const brokenImagesPage = new BrokenImagesPageObject();
 
-describe("Validate Broken Images component", () => {
+
+describe("Check that Broken Images component works", () => {
 
   beforeEach(() => {
     brokenImagesPage.open();
   });
 
-  it("Verify Broken Images page content", () => {
-    brokenImagesPage.verifyContent();
+  it("Check that Broken Images page content is displayed correctly", () => {
+    brokenImagesPage.checkContent();
   });
 
-  it("Verify that first and second images are broken", () => {
-    brokenImagesPage.verifyThatImageIsBroken(brokenImagesPage.firstImage);
-    brokenImagesPage.verifyThatImageIsBroken(brokenImagesPage.secondImage);
+  it("Check that the first and second images are broken", () => {
+    brokenImagesPage.checkThatImageIsBroken(brokenImagesPage.firstImage);
+    brokenImagesPage.checkThatImageIsBroken(brokenImagesPage.secondImage);
   });
 
-  it("Verify that third image uses default blank avatar", () => {
-    brokenImagesPage.verifyThatImageIsNotBroken(brokenImagesPage.thirdImage);
-    brokenImagesPage.verifyThatImageIsBlank(brokenImagesPage.thirdImage);
+  it("Check that the third image uses the default blank avatar", () => {
+    brokenImagesPage.checkThatImageIsNotBroken(brokenImagesPage.thirdImage);
+    brokenImagesPage.checkThatImageIsBlank(brokenImagesPage.thirdImage);
   });
 });

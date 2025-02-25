@@ -1,30 +1,30 @@
-import { DropdownPage } from "../pageObjects/DropdownPage";
+import { DropdownPageObject } from "../pageObjects/DropdownPageObject";
 
-const dropdownPage = new DropdownPage();
+const dropdownPage = new DropdownPageObject();
 
-describe("Validate Dropdown component", () => {
+describe("Check that Dropdown component works", () => {
 
   beforeEach(() => {
     dropdownPage.open();
   });
 
-  it("Verify Dropdown page content", () => {
-    dropdownPage.verifyContent();
+  it("Check Dropdown page content", () => {
+    dropdownPage.checkContent();
   });
 
 
-  it("Verify available option list in dropdown", () => {
-    dropdownPage.verifyAvailableOptionsList();
+  it("Check that options are visible when we click on the dropdown", () => {
+    dropdownPage.checkAvailableOptionsList();
   });
 
-  it("Verify default selected option in dropdown component", () => {
-    dropdownPage.verifyOptionIsSelected(dropdownPage.dropdownOptions.defaultOption);
+  it("Check that default option works at Dropdown page", () => {
+    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.defaultOption);
   });
 
-  it("Verify that user can select available options in dropdown component", () => {
+  it("Check that all options can be selected at Dropdown component", () => {
     dropdownPage.selectOption(dropdownPage.dropdownOptions.option1);
-    dropdownPage.verifyOptionIsSelected(dropdownPage.dropdownOptions.option1);
-    dropdownPage.selectOption(dropdownPage.dropdownOptions.oprion2);
-    dropdownPage.verifyOptionIsSelected(dropdownPage.dropdownOptions.oprion2);
+    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.option1);
+    dropdownPage.selectOption(dropdownPage.dropdownOptions.option2);
+    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.option2);
   });
 });
