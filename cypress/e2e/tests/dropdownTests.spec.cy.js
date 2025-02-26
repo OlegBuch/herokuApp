@@ -9,22 +9,28 @@ describe("Check that Dropdown component works", () => {
   });
 
   it("Check Dropdown page content", () => {
-    dropdownPage.checkContent();
+    cy.contains("h3", "Dropdown List").should("be.visible", { timeout: 10000 });
+    dropdownPage.dropdown.should("be.visible");
+    cy.contains("#page-footer", "Powered by Elemental Selenium").should("be.visible", { timeout: 10000 });
   });
-
 
   it("Check that options are visible when we click on the dropdown", () => {
-    dropdownPage.checkAvailableOptionsList();
+    dropdownPage.getDropdownOptions().should("have.length", Object.keys(dropdownPage.dropdownOptions).length);
+
+    Object.values(dropdownPage.dropdownOptions).forEach((option) => {
+      dropdownPage.dropdown.should("contain", option, { timeout: 10000 });
+    });
   });
 
-  it("Check that default option works at Dropdown page", () => {
-    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.defaultOption);
+  it("Check that default option is selected by default", () => {
+    dropdownPage.getSelectedOption().should("eq", dropdownPage.dropdownOptions.defaultOption,{ timeout: 10000 });
   });
 
   it("Check that all options can be selected at Dropdown component", () => {
     dropdownPage.selectOption(dropdownPage.dropdownOptions.option1);
-    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.option1);
-    dropdownPage.selectOption(dropdownPage.dropdownOptions.option2);
-    dropdownPage.checkOptionIsSelected(dropdownPage.dropdownOptions.option2);
+    dropdownPage.getSelectedOption().should("eq", dropdownPage.dropdownOptions.option1, { timeout: 10000 });
+
+    dropdownPage.selectOption(dropdownPage.dropdownOptions.option2, { timeout: 10000 });
+    dropdownPage.getSelectedOption().should("eq", dropdownPage.dropdownOptions.option2, { timeout: 10000 });
   });
 });
